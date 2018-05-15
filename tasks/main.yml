@@ -1,0 +1,9 @@
+---
+
+- name: "CVSS: 2.6 | Configure TCP timestamps."
+  sysctl:
+    name: net.ipv4.tcp_timestamps
+    value: "{{ (tcp_timestamps_enabled|bool)|ternary('1','0') }}"
+  tags:
+    - configure
+    - security

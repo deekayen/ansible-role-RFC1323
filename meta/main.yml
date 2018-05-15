@@ -1,0 +1,25 @@
+galaxy_info:
+  author: David Norman
+  description: Manage TCP timestamps.
+
+  issue_tracker_url: https://github.com/deekayen/ansible-role-RFC1323/issues
+
+  license: BSD
+
+  min_ansible_version: 1.2
+
+  github_branch: master
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+
+  galaxy_tags:
+    - networking
+
+dependencies: []

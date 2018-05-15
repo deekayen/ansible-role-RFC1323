@@ -1,0 +1,17 @@
+---
+
+matrix:
+  include:
+    - os: linux
+      sudo: required
+      dist: precise
+    - os: linux
+      sudo: required
+      dist: trusty
+
+script:
+  - git ls-files | grep -Ei '^[^[:punct:]].+.(yaml|yml)$' | xargs ansible-review -q
+  - ansible-playbook --check --diff -i localhost, -c local tests/test.yml
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
