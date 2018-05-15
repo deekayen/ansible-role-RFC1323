@@ -1,6 +1,8 @@
 RFC1323
 =======
 
+[![Build Status](https://travis-ci.org/deekayen/ansible-role-RFC1323.svg?branch=master)](https://travis-ci.org/deekayen/ansible-role-RFC1323)
+
 Manage TCP timestamps.
 
 Hosts may leak uptime information through TCP timestamps.
