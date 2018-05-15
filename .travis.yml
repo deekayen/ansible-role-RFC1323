@@ -1,17 +1,9 @@
 ---
 
-matrix:
-  include:
-    - os: linux
-      sudo: required
-      python: 2.7
-      language: python
-      dist: precise
-    - os: linux
-      sudo: required
-      python: 2.7
-      language: python
-      dist: trusty
+dist: trusty
+sudo: required
+python: 2.7
+language: python
 
 before_install:
   - sudo apt-get install -y python-pip
