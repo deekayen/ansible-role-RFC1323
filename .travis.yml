@@ -4,12 +4,29 @@ matrix:
   include:
     - os: linux
       sudo: required
+      python: 2.7
+      language: python
       dist: precise
     - os: linux
       sudo: required
+      python: 2.7
+      language: python
       dist: trusty
 
+before_install:
+  - sudo apt-get install -y python-pip
+
+install:
+  - pip install ansible
+  - pip install ansible-review
+
+before_script:
+  - ansible --version
+  - ansible-review --version
+  - python --version
+
 script:
+  - printf '[defaults]\nroles_path=../' >ansible.cfg
   - git ls-files | grep -Ei '^[^[:punct:]].+.(yaml|yml)$' | xargs ansible-review -q
   - ansible-playbook --check --diff -i localhost, -c local tests/test.yml
 
