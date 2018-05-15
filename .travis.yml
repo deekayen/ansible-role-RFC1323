@@ -4,9 +4,10 @@ dist: trusty
 sudo: required
 python: 2.7
 language: python
-
-before_install:
-  - sudo apt-get install -y python-pip
+addons:
+  apt:
+    packages:
+    - python-pip
 
 install:
   - pip install ansible
