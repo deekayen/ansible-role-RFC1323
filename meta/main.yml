@@ -1,7 +1,9 @@
 galaxy_info:
+  role_name: RFC1323
   author: David Norman
   description: Manage TCP timestamps.
 
+  github_branch: main
   issue_tracker_url: https://github.com/deekayen/ansible-role-RFC1323/issues
 
   license: BSD
