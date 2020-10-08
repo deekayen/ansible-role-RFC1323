@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: RFC1323
+  role_name: rfc1323
   author: David Norman
   description: Manage TCP timestamps.
 
