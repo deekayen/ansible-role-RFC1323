@@ -21,7 +21,6 @@ jobs:
         distro:
           - centos7
           - centos8
-          - debian10
           - rockylinux8
           - ubuntu1804
           - ubuntu2004
