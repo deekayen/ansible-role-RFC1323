@@ -4,7 +4,7 @@ galaxy_info:
   role_name: rfc1323
   namespace: deekayen
   author: David Norman
-  description: Manage TCP timestamps.
+  description: Manage RFC1323 TCP timestamps to prevent system uptime calculation.
 
   github_branch: main
   issue_tracker_url: https://github.com/deekayen/ansible-role-RFC1323/issues
