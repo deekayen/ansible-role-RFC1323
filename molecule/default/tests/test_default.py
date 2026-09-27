@@ -1,9 +1,15 @@
-import os
-import testinfra.utils.ansible_runner
+"""Testinfra checks for the RFC1323 role."""
 
-testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
+import re
 
 
 def test_tcp_timestamps_disabled(host):
-    assert not host.sysctl("net.ipv4.tcp_timestamps")
+    assert host.sysctl("net.ipv4.tcp_timestamps") == 0
+
+
+def test_setting_persisted(host):
+    conf = host.file("/etc/sysctl.d/99-rfc1323.conf")
+    assert conf.mode == 0o644
+    assert re.search(
+        r"^net\.ipv4\.tcp_timestamps\s*=\s*0$", conf.content_string, re.M
+    )

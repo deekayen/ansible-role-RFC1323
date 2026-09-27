@@ -1,3 +1,2 @@
 ---
-
-tcp_timestamps_enabled: False
+tcp_timestamps_enabled: false

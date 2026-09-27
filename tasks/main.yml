@@ -1,9 +1,20 @@
 ---
+- name: Ensure the sysctl.d drop-in directory exists.
+  ansible.builtin.file:
+    path: /etc/sysctl.d
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
 
 - name: "CVSS: 2.6 | Configure TCP timestamps."
-  sysctl:
+  ansible.posix.sysctl:
     name: net.ipv4.tcp_timestamps
-    value: "{{ (tcp_timestamps_enabled|bool)|ternary('1','0') }}"
+    value: "{{ tcp_timestamps_enabled | bool | ternary('1', '0') }}"
+    state: present
+    # Newer distros (Debian 13, Ubuntu 26.04, EL 10, Amazon Linux 2023) no
+    # longer read /etc/sysctl.conf at boot; every distro reads sysctl.d.
+    sysctl_file: /etc/sysctl.d/99-rfc1323.conf
   tags:
     - configure
     - security

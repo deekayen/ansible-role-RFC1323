@@ -1,31 +1,38 @@
 ---
-
 galaxy_info:
-  role_name: rfc1323
   namespace: deekayen
+  role_name: rfc1323
   author: David Norman
   description: Manage RFC1323 TCP timestamps to prevent system uptime calculation.
 
   github_branch: main
   issue_tracker_url: https://github.com/deekayen/ansible-role-RFC1323/issues
 
-  license: BSD
-
-  min_ansible_version: 1.2
+  license: BSD-3-Clause
+  min_ansible_version: "2.15"
 
   platforms:
     - name: EL
       versions:
-        - 7
-        - 8
+        - "9"
+        - "10"
+    - name: Amazon Linux
+      versions:
+        - "2023"
+    - name: Debian
+      versions:
+        - bookworm
+        - trixie
     - name: Ubuntu
       versions:
-        - xenial
-        - bionic
-        - focal
+        - jammy
+        - noble
+        - resolute
 
   galaxy_tags:
     - networking
     - security
+    - sysctl
+    - tcp
 
 dependencies: []

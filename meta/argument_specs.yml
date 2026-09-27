@@ -1,0 +1,17 @@
+---
+argument_specs:
+  main:
+    short_description: Manage RFC1323 TCP timestamps.
+    description:
+      - Sets net.ipv4.tcp_timestamps so hosts do not leak their uptime
+        through TCP timestamps, a finding vulnerability scanners report
+        with a CVSS score of 2.6.
+    author:
+      - David Norman
+    options:
+      tcp_timestamps_enabled:
+        type: bool
+        default: false
+        description: >-
+          Whether TCP timestamps stay enabled. The default false disables
+          them to stop uptime disclosure.
